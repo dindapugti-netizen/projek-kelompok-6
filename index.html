@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cupcake Glory</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #fcefe8;
+      color: #333;
+    }
+    header {
+      background: #ffe5d6;
+      padding: 20px;
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      border-bottom: 4px solid #f3c6a1;
+    }
+    .section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .grid img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .desc-box {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 30px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* MENU */
+    .menu-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .item {
+      text-align: center;
+      width: 150px;
+    }
+
+    .item img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .label {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .tag {
+      font-size: 13px;
+      color: #c44343;
+      font-weight: 700;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      background: #fff4ea;
+      padding: 30px 10px;
+      font-size: 18px;
+      margin-top: 30px;
+      border-top: 4px solid #f3c6a1;
+    }
+
+    .contact-box {
+      background: white;
+      padding: 15px;
+      display: inline-block;
+      border-radius: 12px;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    /* BUTTON */
+    .btn-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #f3a06b;
+      padding: 12px 18px;
+      border-radius: 50px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>CUPCAKE GLORY</header>
+
+<section class="section">
+  <div class="grid">
+    <img src="https://i.ibb.co/5Mr8pT4/choco-cake.jpg" alt="cupcake" />
+    <div class="desc-box">
+      <p>
+        Kue kecil dengan berbagai banyak rasa dan ditaburi topping topping yang menarik
+        di atasnya. Memiliki tekstur yang lembut serta memberikan rasa yang manis.
+        Cocok untuk acara pesta, ulang tahun, maupun bazar.
+      </p>
+    </div>
+  </div>
+</section>
+
+<h2>Daftar Menu</h2>
+<section class="section">
+  <div class="menu-list">
+    <div class="item">
+      <span class="tag">best seller!</span>
+      <img src="https://i.ibb.co/YZ7L31L/oreo.jpg" />
+      <div class="label">Oreo</div>
+    </div>
+
+    <div class="item">
+      <span class="tag">rekomendasi</span>
+      <img src="https://i.ibb.co/NVWLKPW/caramel.jpg" />
+      <div class="label">Caramel</div>
+    </div>
+
+    <div class="item">
+      <img src="https://i.ibb.co/3SFjmt8/red.jpg" />
+      <div class="label">Red Velvet</div>
+    </div>
+
+    <div class="item">
+      <img src="https://i.ibb.co/zPNZDnB/vanilla.jpg" />
+      <div class="label">Vanilla</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h3>Hubungi Kami</h3>
+  <div class="contact-box">
+    08357690872 · @cupcakeglory
+  </div>
+  <p>Terima Kasih!</p>
+</footer>
+
+<!-- ORDER SECTION -->
+<section class="section" id="order">
+  <h2>Pesan Cupcake</h2>
+  <div class="desc-box">
+    <label>Nama Pemesan:<br><input type="text" id="nama" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ccc;"></label><br><br>
+    <label>Pilih Rasa:<br>
+      <select id="rasa" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ccc;">
+        <option>Oreo</option>
+        <option>Caramel</option>
+        <option>Red Velvet</option>
+        <option>Vanilla</option>
+      </select>
+    </label><br><br>
+    <label>Jumlah:<br><input type="number" id="jumlah" min="1" value="1" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ccc;"></label><br><br>
+    <button onclick="submitOrder()" style="background:#f3a06b;color:white;padding:10px 20px;border:none;border-radius:10px;font-size:16px;cursor:pointer;">Pesan Sekarang</button>
+    <p id="orderResult" style="margin-top:15px;font-weight:600;color:#c44343;"></p>
+  </div>
+</section>
+
+<div class="btn-top" id="topBtn">▲</div>
+
+<script>
+  const btn = document.getElementById("topBtn");
+  window.onscroll = () => {
+    if (document.documentElement.scrollTop > 200) btn.style.display = "block";
+    else btn.style.display = "none";
+  };
+
+  function submitOrder() {
+    const nama = document.getElementById('nama').value;
+    const rasa = document.getElementById('rasa').value;
+    const jumlah = document.getElementById('jumlah').value;
+    const result = document.getElementById('orderResult');
+
+    if (!nama) {
+      result.textContent = 'Harap isi nama terlebih dahulu.';
+      return;
+    }
+
+    result.textContent = `Pesanan dikirim! ${nama} memesan ${jumlah} cupcake rasa ${rasa}. Kami akan segera menghubungi Anda.`;
+  }
+
+  btn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+</script>
+
+</body>
+  </html>
